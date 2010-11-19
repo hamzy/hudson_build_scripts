@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash -x
 ##
 ## enhanced_build_test.sh
 ## 
