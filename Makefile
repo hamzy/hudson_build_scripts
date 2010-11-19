@@ -9,5 +9,5 @@
 ## 
 
 all:
-	mkdir ~/scripts
+	install -d ~/scripts
 	cp -a * ~/scripts
