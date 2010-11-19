@@ -10,7 +10,7 @@
 ##
 
 echo "Building connectathon"
-if [[ -d /home/hudson/cthon04 ]]; then
+if [[ ! -d /home/hudson/cthon04 ]]; then
     git clone git://morbo.linux.ibm.com/~sdague/cthon04 /home/hudson/cthon04
 fi
 cd /home/hudson/cthon04
