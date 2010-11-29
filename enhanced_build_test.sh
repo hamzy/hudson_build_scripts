@@ -19,6 +19,7 @@ autoreconf -i
 ./configure $CONFIG_FLAGS --enable-debug-memcorrupt
 make clean
 make
+make distclean
 ./configure $CONFIG_FLAGS
 make clean
 make
