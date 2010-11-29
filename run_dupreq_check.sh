@@ -25,5 +25,5 @@ sudo ./dupreq_check -h sonas12 -d /ibm/fs0/hudson/$NODE_NAME -D > /tmp/dupreq_ch
 
 echo "Running the parser"
 cd /home/hudson/dupreq_check
-sudo c-toxml.rb $WORKSPACE/ /tmp/
-sudo d-toxml.rb $WORKSPACE/ /tmp/
+sudo ./c-toxml.rb $WORKSPACE/ /tmp/
+sudo ./d-toxml.rb $WORKSPACE/ /tmp/
