@@ -22,8 +22,17 @@ sudo killall runcthon
 sudo killall tlocklfs
 sudo ./runcthon --unmountall
 ssh -tt root@sonas12 service nfs-ganesha-gpfs restart || exit 1
-sudo ./runcthon --server sonas12 --serverdir /ibm/fs0/hudson/$NODE_NAME --onlyv3
+sudo ./runcthon --server sonas12 --serverdir /ibm/fs0/hudson/root/$NODE_NAME --onlyv3
 sudo ./runcthon --unmountall
+
+echo "Unmounting everything"
+sudo killall runcthon
+sudo killall tlocklfs
+sudo ./runcthon --unmountall
+ssh -tt root@sonas12 service nfs-ganesha-gpfs restart || exit 1
+./runcthon --server sonas12 --serverdir /ibm/fs0/hudson/hudson/$NODE_NAME --onlyv3
+sudo ./runcthon --unmountall
+
 
 echo "Running the parser"
 # get the parse
@@ -33,4 +42,5 @@ fi
 
 cd /home/hudson/cthon2junit
 git pull
-./cthon2junit.rb $WORKSPACE
+./cthon2junit.rb $WORKSPACE /tmp/root "root-"
+./cthon2junit.rb $WORKSPACE /tmp/hudson "hudson-"
