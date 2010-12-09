@@ -13,4 +13,4 @@ if [[ -d /home/hudson/dupreq_check ]]; then
 fi
 git clone git://morbo.linux.ibm.com/~jbongio0/regression_tests /home/hudson/regression_tests
 cd /home/hudson/regression_tests
-sudo ./run_tests.sh $WORKSPACE sonas12  /ibm/fs0/hudson/$NODE_NAME
+sudo SERVER=sonas12 EXPORTDIR=/ibm/fs0/hudson/$NODE_NAME XMLDEST=$WORKSPACE TMPDIR=/tmp make
