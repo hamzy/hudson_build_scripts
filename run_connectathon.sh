@@ -15,7 +15,10 @@ if [[ ! -d /home/hudson/cthon04 ]]; then
 fi
 cd /home/hudson/cthon04
 git pull
+sudo rm -f domount
 make
+sudo chown root domount
+sudo chmod u+s domount
 
 echo "Unmounting everything"
 sudo killall runcthon
