@@ -10,5 +10,5 @@
 
 all:
 	echo $(PATH)
-	install -d ~/scripts
-	cp -a * ~/scripts
+	install -d $(HOME)/scripts
+	cp -a * $(HOME)/scripts
