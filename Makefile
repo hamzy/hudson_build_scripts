@@ -9,5 +9,6 @@
 ## 
 
 all:
+	echo $(PATH)
 	install -d ~/scripts
 	cp -a * ~/scripts
