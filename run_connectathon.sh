@@ -25,7 +25,7 @@ sudo killall runcthon
 sudo killall tlocklfs
 sudo ./runcthon --unmountall
 ssh -tt root@sonas12 service nfs-ganesha-gpfs restart || exit 1
-sleep 10
+sleep 30
 sudo ./runcthon --server sonas12 --serverdir /ibm/fs0/hudson/root/$NODE_NAME --onlyv3
 sudo ./runcthon --unmountall
 
