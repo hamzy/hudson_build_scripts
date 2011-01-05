@@ -27,7 +27,17 @@ sudo ./runcthon --unmountall
 ssh -tt root@sonas12 service portmap restart || exit 1
 ssh -tt root@sonas12 service nfs-ganesha-gpfs restart || exit 1
 
-sudo mount sonas12:/ibm/fs0 /mnt
+# we need a loop to figure out if NFS is ready, as apparently it can
+# take a little bit to come up, and that little bit is really non
+# deterministic.
+NFSNOTREADY=1
+while [ $NFSNOTREADY -ne 0 ]
+do
+    sudo mount sonas12:/ibm/fs0 /mnt
+    NFSNOTREADY=$?
+    sleep 5
+    echo "sleeping 5 seconds to ensure NFS is ready"
+done
 sudo umount /mnt
 
 sudo ./runcthon --server sonas12 --serverdir /ibm/fs0/hudson/root/$NODE_NAME --onlyv3
