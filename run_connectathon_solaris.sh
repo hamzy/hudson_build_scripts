@@ -9,6 +9,10 @@
 ## Last update Fri Nov 19 11:12:16 2010 Sean Dague
 ##
 
+# get rid of the test files
+rm -f $WORKSPACE/*.xml
+sudo rm -rf /tmp/root /tmp/hudson
+
 echo "Building connectathon"
 if [[ ! -d /home/hudson/cthon04_solaris ]]; then
     git clone git://morbo.linux.ibm.com/~jbongio0/cthon04_solaris /home/hudson/cthon04_solaris

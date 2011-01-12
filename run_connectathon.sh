@@ -9,6 +9,10 @@
 ## Last update Fri Nov 19 11:12:16 2010 Sean Dague
 ##
 
+# get rid of the test files
+rm -f $WORKSPACE/*.xml
+sudo rm -rf /tmp/root /tmp/hudson
+
 echo "Building connectathon"
 if [[ ! -d /home/hudson/cthon04 ]]; then
     git clone git://morbo.linux.ibm.com/~sdague/cthon04 /home/hudson/cthon04
