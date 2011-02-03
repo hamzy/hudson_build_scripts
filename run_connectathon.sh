@@ -11,7 +11,7 @@
 
 # get rid of the test files
 rm -f $WORKSPACE/*.xml
-sudo rm -rf /tmp/root /tmp/hudson
+sudo rm -rf /tmp/root /tmp/jenkins
 
 echo "Building connectathon"
 if [[ ! -d /home/hudson/cthon04 ]]; then
@@ -52,7 +52,7 @@ sudo killall runcthon
 sudo killall tlocklfs
 sudo ./runcthon --unmountall
 ssh -tt root@sonas12 service nfs-ganesha-gpfs restart || exit 1
-./runcthon --server sonas12 --serverdir /ibm/fs0/hudson/hudson/$NODE_NAME --onlyv3
+./runcthon --server sonas12 --serverdir /ibm/fs0/hudson/jenkins/$NODE_NAME --onlyv3
 sudo ./runcthon --unmountall
 
 
@@ -65,4 +65,4 @@ fi
 cd /home/hudson/cthon2junit
 git pull
 ./cthon2junit.rb $WORKSPACE /tmp/root "root-"
-./cthon2junit.rb $WORKSPACE /tmp/hudson "hudson-"
+./cthon2junit.rb $WORKSPACE /tmp/jenkins "jenkins-"
