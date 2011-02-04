@@ -33,7 +33,7 @@ sudo killall runcthon
 sudo killall tlocklfs
 sudo ./runcthon --unmountall
 ssh -tt root@sonas12 service nfs-ganesha-gpfs restart || exit 1
-./runcthon --server sonas12 --serverdir /ibm/fs0/hudson64/hudson/$NODE_NAME --onlyv3
+./runcthon --server sonas12 --serverdir /ibm/fs0/hudson64/jenkins/$NODE_NAME --onlyv3
 sudo ./runcthon --unmountall
 
 
@@ -46,4 +46,4 @@ fi
 cd /home/hudson/cthon2junit
 git pull
 ./cthon2junit.rb $WORKSPACE /tmp/root "root-"
-./cthon2junit.rb $WORKSPACE /tmp/hudson "hudson-"
+./cthon2junit.rb $WORKSPACE /tmp/jenkins "jenkins-"
