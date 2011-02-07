@@ -14,10 +14,10 @@ rm -f $WORKSPACE/*.xml
 sudo rm -rf /tmp/root /tmp/jenkins
 
 echo "Building connectathon"
-if [[ ! -d /home/hudson/cthon04_solaris ]]; then
-    git clone git://morbo.linux.ibm.com/~jbongio0/cthon04_solaris /home/hudson/cthon04_solaris
+if [[ ! -d /home/jenkins/cthon04_solaris ]]; then
+    git clone git://morbo.linux.ibm.com/~jbongio0/cthon04_solaris /home/jenkins/cthon04_solaris
 fi
-cd /home/hudson/cthon04_solaris
+cd /home/jenkins/cthon04_solaris
 git pull
 sudo rm -f domount
 make
@@ -43,11 +43,11 @@ sudo ./runcthon --unmountall
 
 echo "Running the parser"
 # get the parse
-if [[ ! -d /home/hudson/cthon2junit ]]; then
-    git clone git://morbo.linux.ibm.com/~sdague/cthon2junit /home/hudson/cthon2junit
+if [[ ! -d /home/jenkins/cthon2junit ]]; then
+    git clone git://morbo.linux.ibm.com/~sdague/cthon2junit /home/jenkins/cthon2junit
 fi
 
-cd /home/hudson/cthon2junit
+cd /home/jenkins/cthon2junit
 git pull
 ./cthon2junit.rb $WORKSPACE /tmp/root "root-"
 ./cthon2junit.rb $WORKSPACE /tmp/jenkins "jenkins-"
