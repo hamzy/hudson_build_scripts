@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 ##
 ## sync_data.sh
 ## 
@@ -11,6 +11,8 @@
 
 # pull in the hosts file
 
-scp herbert.pok.ibm.com:/etc/hosts /tmp/hosts && sudo cp /tmp/hosts /etc/hosts
+if [[ $HOSTNAME -ne "herbert" ]]; then
+    scp herbert.pok.ibm.com:/etc/hosts /tmp/hosts && sudo cp /tmp/hosts /etc/hosts
+fi
 
 
