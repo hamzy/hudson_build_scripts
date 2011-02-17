@@ -28,16 +28,16 @@ echo "Unmounting everything"
 sudo killall runcthon
 sudo killall tlocklfs
 sudo ./runcthon --unmountall
-ssh -tt root@sonas12 service nfs-ganesha-gpfs restart || exit 1
-sudo ./runcthon --server sonas12 --serverdir /ibm/fs0/hudson64/root/$NODE_NAME --onlyv3
+ssh -tt root@sonas13 service nfs-ganesha-gpfs restart || exit 1
+sudo ./runcthon --server sonas13 --serverdir /ibm/fs0/hudson64/root/$NODE_NAME --onlyv3
 sudo ./runcthon --unmountall
 
 echo "Unmounting everything"
 sudo killall runcthon
 sudo killall tlocklfs
 sudo ./runcthon --unmountall
-ssh -tt root@sonas12 service nfs-ganesha-gpfs restart || exit 1
-./runcthon --server sonas12 --serverdir /ibm/fs0/hudson64/jenkins/$NODE_NAME --onlyv3
+ssh -tt root@sonas13 service nfs-ganesha-gpfs restart || exit 1
+./runcthon --server sonas13 --serverdir /ibm/fs0/hudson64/jenkins/$NODE_NAME --onlyv3
 sudo ./runcthon --unmountall
 
 
