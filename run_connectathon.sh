@@ -28,7 +28,7 @@ echo "Unmounting everything"
 sudo killall runcthon
 sudo killall tlocklfs
 sudo ./runcthon --unmountall
-ssh -tt root@sonas13 service portmap restart || exit 1
+ssh -tt root@sonas13 service rpcbind restart || exit 1
 ssh -tt root@sonas13 service nfs-ganesha-gpfs restart || exit 1
 
 # we need a loop to figure out if NFS is ready, as apparently it can
