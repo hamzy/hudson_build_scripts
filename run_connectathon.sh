@@ -55,6 +55,17 @@ sudo killall runcthon
 sudo killall tlocklfs
 sudo ./runcthon --unmountall
 ssh -tt root@sonas13 service nfs-ganesha-gpfs restart || exit 1
+
+NFSNOTREADY=1
+while [ $NFSNOTREADY -ne 0 ]
+do
+    sudo mount sonas13:/ibm/fs0 /mnt
+    NFSNOTREADY=$?
+    sleep 5
+    echo "sleeping 5 seconds to ensure NFS is ready"
+done
+sudo umount -f /mnt
+
 ./runcthon --server sonas13 --serverdir /ibm/fs0/hudson/jenkins/$NODE_NAME --onlyv3
 sudo ./runcthon --unmountall
 
