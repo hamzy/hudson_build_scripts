@@ -1,10 +1,10 @@
 #!/bin/bash -x
 ##
 ## run_connectathon.sh
-## 
+##
 ## Made by Sean Dague
 ## Login   <sdague@orac>
-## 
+##
 ## Started on  Fri Nov 19 11:12:16 2010 Sean Dague
 ## Last update Fri Nov 19 11:12:16 2010 Sean Dague
 ##
@@ -34,6 +34,9 @@ ssh -tt root@sonas13 service nfs-ganesha-gpfs restart || exit 1
 # we need a loop to figure out if NFS is ready, as apparently it can
 # take a little bit to come up, and that little bit is really non
 # deterministic.
+
+sudo umount -f /mnt
+
 NFSNOTREADY=1
 while [ $NFSNOTREADY -ne 0 ]
 do
@@ -42,7 +45,7 @@ do
     sleep 5
     echo "sleeping 5 seconds to ensure NFS is ready"
 done
-sudo umount /mnt
+sudo umount -f /mnt
 
 sudo ./runcthon --server sonas13 --serverdir /ibm/fs0/hudson/root/$NODE_NAME --onlyv3
 sudo ./runcthon --unmountall
