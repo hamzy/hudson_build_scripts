@@ -11,8 +11,10 @@
 
 # pull in the hosts file
 
-if [[ $HOSTNAME -ne "herbert" ]]; then
-    scp herbert.pok.ibm.com:/etc/hosts /tmp/hosts && sudo cp /tmp/hosts /etc/hosts
+if [[ $HOSTNAME = "herbert" ]]; then
+    exit 0
 fi
+
+scp stephenson.pok.ibm.com:/etc/hosts /tmp/hosts && sudo cp /tmp/hosts /etc/hosts
 
 
