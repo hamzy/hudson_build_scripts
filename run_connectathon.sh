@@ -30,7 +30,7 @@ sudo killall tlocklfs
 
 sudo ./runcthon --unmountall
 sleep 1
-sudo umount /mnt
+sudo umount -l /mnt
 
 ssh -tt root@sonas13 service rpcbind restart || exit 1
 sleep 5
@@ -45,7 +45,7 @@ do
     sleep 5
     echo "sleeping 5 seconds to ensure NFS is ready"
 done
-sudo umount /mnt
+sudo umount -l /mnt
 sleep 1
 
 sudo ./runcthon --server sonas13 --serverdir /ibm/fs0/hudson/root/$NODE_NAME --onlyv3
@@ -56,7 +56,7 @@ sudo killall tlocklfs
 
 sudo ./runcthon --unmountall
 sleep 1
-sudo umount /mnt
+sudo umount -l /mnt
 
 ssh -tt root@sonas13 service rpcbind restart || exit 1
 sleep 5
@@ -71,7 +71,7 @@ do
     sleep 5
     echo "sleeping 5 seconds to ensure NFS is ready"
 done
-sudo umount /mnt
+sudo umount -l /mnt
 sleep 1
 
 ./runcthon --server sonas13 --serverdir /ibm/fs0/hudson/jenkins/$NODE_NAME --onlyv3
