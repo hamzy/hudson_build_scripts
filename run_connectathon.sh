@@ -9,6 +9,8 @@
 ## Last update Fri Nov 19 11:12:16 2010 Sean Dague
 ##
 
+SERVER=$1
+
 # get rid of the test files
 rm -f $WORKSPACE/*.xml
 sudo rm -rf /tmp/root /tmp/jenkins
@@ -32,15 +34,13 @@ sudo ./runcthon --unmountall
 sleep 1
 sudo umount -l /mnt
 
-ssh -tt root@sonas13 service rpcbind restart || exit 1
-sleep 5
-ssh -tt root@sonas13 service nfs-ganesha-gpfs restart || exit 1
+ssh -tt root@${SERVER} service nfs-ganesha-gpfs restart || exit 1
 sleep 5
 
 NFSNOTREADY=1
 while [ $NFSNOTREADY -ne 0 ]
 do
-    sudo mount sonas13:/ibm/fs0 /mnt
+    sudo mount ${SERVER}:/ibm/fs0 /mnt
     NFSNOTREADY=$?
     sleep 5
     echo "sleeping 5 seconds to ensure NFS is ready"
@@ -48,7 +48,7 @@ done
 sudo umount -l /mnt
 sleep 1
 
-sudo ./runcthon --server sonas13 --serverdir /ibm/fs0/hudson/root/$NODE_NAME --onlyv3
+sudo ./runcthon --server ${SERVER} --serverdir /ibm/fs0/hudson/root/$NODE_NAME --onlyv3
 
 echo "Unmounting everything"
 sudo killall runcthon
@@ -58,15 +58,13 @@ sudo ./runcthon --unmountall
 sleep 1
 sudo umount -l /mnt
 
-ssh -tt root@sonas13 service rpcbind restart || exit 1
-sleep 5
-ssh -tt root@sonas13 service nfs-ganesha-gpfs restart || exit 1
+ssh -tt root@${SERVER} service nfs-ganesha-gpfs restart || exit 1
 sleep 5
 
 NFSNOTREADY=1
 while [ $NFSNOTREADY -ne 0 ]
 do
-    sudo mount sonas13:/ibm/fs0 /mnt
+    sudo mount ${SERVER}:/ibm/fs0 /mnt
     NFSNOTREADY=$?
     sleep 5
     echo "sleeping 5 seconds to ensure NFS is ready"
@@ -74,7 +72,7 @@ done
 sudo umount -l /mnt
 sleep 1
 
-./runcthon --server sonas13 --serverdir /ibm/fs0/hudson/jenkins/$NODE_NAME --onlyv3
+./runcthon --server ${SERVER} --serverdir /ibm/fs0/hudson/jenkins/$NODE_NAME --onlyv3
 sudo ./runcthon --unmountall
 
 
