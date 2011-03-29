@@ -10,6 +10,7 @@
 ##
 
 SERVER=$1
+HOSTFS=$2
 
 # get rid of the test files
 rm -f $WORKSPACE/*.xml
@@ -40,7 +41,7 @@ sleep 5
 NFSNOTREADY=1
 while [ $NFSNOTREADY -ne 0 ]
 do
-    sudo mount ${SERVER}:/ibm/fs0 /mnt
+    sudo mount ${SERVER}:$HOSTFS /mnt
     NFSNOTREADY=$?
     sleep 5
     echo "sleeping 5 seconds to ensure NFS is ready"
@@ -48,7 +49,7 @@ done
 sudo umount -l /mnt
 sleep 1
 
-sudo ./runcthon --server ${SERVER} --serverdir /ibm/fs0/hudson/root/$NODE_NAME --onlyv3
+sudo ./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/root/$NODE_NAME --onlyv3
 
 echo "Unmounting everything"
 sudo killall runcthon
@@ -64,7 +65,7 @@ sleep 5
 NFSNOTREADY=1
 while [ $NFSNOTREADY -ne 0 ]
 do
-    sudo mount ${SERVER}:/ibm/fs0 /mnt
+    sudo mount ${SERVER}:$HOSTFS /mnt
     NFSNOTREADY=$?
     sleep 5
     echo "sleeping 5 seconds to ensure NFS is ready"
@@ -72,7 +73,7 @@ done
 sudo umount -l /mnt
 sleep 1
 
-./runcthon --server ${SERVER} --serverdir /ibm/fs0/hudson/jenkins/$NODE_NAME --onlyv3
+./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/jenkins/$NODE_NAME --onlyv3
 sudo ./runcthon --unmountall
 
 
