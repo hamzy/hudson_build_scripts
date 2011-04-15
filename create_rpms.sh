@@ -22,4 +22,4 @@ make clean
 make rpm
 DIR=`pwd`
 cp $DIR/rpm/RPMS/x86_64/nfs-ganesha-gpfs* $DIR/rpm/RPMS/x86_64/nfs-ganesha-common* /tmp/
-sudo rpm -Uhv /tmp/nfs-ganesha-*.rpm
+sudo rpm -Uhv --force /tmp/nfs-ganesha-*.rpm
