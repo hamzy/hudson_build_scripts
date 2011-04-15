@@ -16,10 +16,6 @@
 cd src
 export CONFIG_FLAGS="--with-fsal=GPFS --enable-snmp-adm --enable-nlm --enable-stat-exporter"
 autoreconf -i
-./configure $CONFIG_FLAGS --enable-debug-memcorrupt
-make clean
-make
-make distclean
 ./configure $CONFIG_FLAGS
 make clean
 make
