@@ -14,8 +14,10 @@
 ##
 
 cd src
-export CONFIG_FLAGS="--with-fsal=GPFS --enable-snmp-adm --enable-nlm --enable-stat-exporter"
+export CONFIG_FLAGS="--with-fsal=GPFS --enable-snmp-adm --enable-nlm --enable-stat-exporter --with-rpcal=TIRPC"
+export PATH="/bin:/usr/bin:/usr/local/bin"
+export CC=/usr/local/bin/beam-cc
 autoreconf -i
-CC=beam-cc ./configure $CONFIG_FLAGS
+./configure $CONFIG_FLAGS
 make clean
 make
