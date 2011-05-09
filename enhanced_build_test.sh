@@ -21,3 +21,11 @@ make clean
 make
 make check
 make rpm
+
+export CONFIG_FLAGS="--with-fsal=GPFS --enable-snmp-adm --enable-nlm --enable-stat-exporter --with-rpcal=TIRPC"
+autoreconf -i
+./configure $CONFIG_FLAGS
+make clean
+make
+make check
+make rpm
