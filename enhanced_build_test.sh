@@ -18,14 +18,14 @@ export CONFIG_FLAGS="--with-fsal=GPFS --enable-snmp-adm --enable-nlm --enable-st
 autoreconf -i
 ./configure $CONFIG_FLAGS
 make clean
-make
-make check
-make rpm
+make || exit 1
+make check || exit 1
+make rpm || exit 1 
 
 export CONFIG_FLAGS="--with-fsal=GPFS --enable-snmp-adm --enable-nlm --enable-stat-exporter --enable-strict-compile --with-rpcal=TIRPC"
 autoreconf -i
 ./configure $CONFIG_FLAGS
 make clean
-make
-make check
-make rpm
+make || exit 1
+make check  || exit 1
+make rpm  || exit 1
