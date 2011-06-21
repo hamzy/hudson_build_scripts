@@ -74,7 +74,7 @@ done
 sudo umount -l /mnt
 sleep 1
 
-kinit jenkins/$HOSTNAME@SONASDOMAIN.COM -k
+kinit -k jenkins/$HOSTNAME@SONASDOMAIN.COM 
 ./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/jenkins/$NODE_NAME --onlyv3 --onlykrb5 --noudp
 sudo ./runcthon --unmountall
 
