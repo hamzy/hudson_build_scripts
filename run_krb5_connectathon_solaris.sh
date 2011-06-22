@@ -35,7 +35,7 @@ sudo killall runcthon
 sudo killall tlocklfs
 sudo ./runcthon --unmountall
 ssh -tt root@$SERVER service nfs-ganesha-gpfs restart || exit 1
-sudo ./runcthon --server $SERVER --serverdir /ibm/fs0/hudson/root/$NODE_NAME --onlyv3 -onlykrb5 --noudp
+sudo ./runcthon --server $SERVER --serverdir /ibm/fs0/hudson/root/$NODE_NAME --onlyv3 --onlykrb5 --noudp
 sudo ./runcthon --unmountall
 
 echo "Unmounting everything"
@@ -44,7 +44,7 @@ sudo killall tlocklfs
 sudo ./runcthon --unmountall
 ssh -tt root@$SERVER service nfs-ganesha-gpfs restart || exit 1
 kinit -k jenkins/$HOSTNAME@SONASDOMAIN.COM 
-./runcthon --server $SERVER --serverdir /ibm/fs0/hudson/jenkins/$NODE_NAME --onlyv3 -onlykrb5 --noudp
+./runcthon --server $SERVER --serverdir /ibm/fs0/hudson/jenkins/$NODE_NAME --onlyv3 --onlykrb5 --noudp
 sudo ./runcthon --unmountall
 
 
