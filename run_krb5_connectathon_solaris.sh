@@ -9,7 +9,13 @@
 ## Last update Fri Nov 19 11:12:16 2010 Sean Dague
 ##
 
+SERVER=$1
+HOSTFS=$2
+HOSTNAME=`hostname`
+
 # get rid of the test files
+export PATH=$PATH:/usr/gnu/bin/:/usr/bin:/sbin:/bin:/usr/sbin
+
 rm -f $WORKSPACE/*.xml
 sudo rm -rf /tmp/root /tmp/jenkins
 
@@ -28,17 +34,17 @@ echo "Unmounting everything"
 sudo killall runcthon
 sudo killall tlocklfs
 sudo ./runcthon --unmountall
-ssh -tt root@sonas13 service nfs-ganesha-gpfs restart || exit 1
-sudo ./runcthon --server sonas13 --serverdir /ibm/fs0/hudson/root/$NODE_NAME --onlyv3 -onlykrb5 --noudp
+ssh -tt root@$SERVER service nfs-ganesha-gpfs restart || exit 1
+sudo ./runcthon --server $SERVER --serverdir /ibm/fs0/hudson/root/$NODE_NAME --onlyv3 -onlykrb5 --noudp
 sudo ./runcthon --unmountall
 
 echo "Unmounting everything"
 sudo killall runcthon
 sudo killall tlocklfs
 sudo ./runcthon --unmountall
-ssh -tt root@sonas13 service nfs-ganesha-gpfs restart || exit 1
+ssh -tt root@$SERVER service nfs-ganesha-gpfs restart || exit 1
 kinit -k jenkins/$HOSTNAME@SONASDOMAIN.COM 
-./runcthon --server sonas13 --serverdir /ibm/fs0/hudson/jenkins/$NODE_NAME --onlyv3 -onlykrb5 --noudp
+./runcthon --server $SERVER --serverdir /ibm/fs0/hudson/jenkins/$NODE_NAME --onlyv3 -onlykrb5 --noudp
 sudo ./runcthon --unmountall
 
 
