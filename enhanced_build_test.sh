@@ -13,7 +13,8 @@
 ## Last update Fri Nov 19 09:35:17 2010 Sean Dague
 ##
 
-# cd src
+cd src
+
 # export CONFIG_FLAGS="--with-fsal=GPFS --enable-snmp-adm --enable-nlm --enable-stat-exporter --enable-strict-compile"
 # autoreconf -i
 # ./configure $CONFIG_FLAGS
