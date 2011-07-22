@@ -12,4 +12,4 @@ all:
 	echo $(PATH)
 	install -d $(HOME)/scripts
 	cp -a *.sh $(HOME)/scripts
-	$(HOME)/scripts/sync_data.sh
+
