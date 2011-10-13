@@ -21,7 +21,7 @@ cd src
 # make clean
 # make || exit 1
 
-export CONFIG_FLAGS="--with-fsal=GPFS --enable-snmp-adm --enable-nlm --enable-stat-exporter"
+export CONFIG_FLAGS="--enable-strict-compile --with-fsal=GPFS --enable-snmp-adm --enable-nlm --enable-stat-exporter"
 autoreconf -i
 ./configure $CONFIG_FLAGS
 make clean
@@ -35,7 +35,7 @@ make rpm || exit 1
 # make clean
 # make || exit 1
 
-export CONFIG_FLAGS="--with-fsal=GPFS --enable-snmp-adm --enable-nlm --enable-stat-exporter --with-rpcal=TIRPC"
+export CONFIG_FLAGS="--enable-strict-compile --with-fsal=GPFS --enable-snmp-adm --enable-nlm --enable-stat-exporter --with-rpcal=TIRPC"
 autoreconf -i
 ./configure $CONFIG_FLAGS
 make clean
