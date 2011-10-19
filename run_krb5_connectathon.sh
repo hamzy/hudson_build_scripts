@@ -13,6 +13,12 @@ SERVER=$1
 HOSTFS=$2
 HOSTNAME=`hostname`
 
+# an up to date time is essential for kerberos
+# KDC is already configured in /etc/krb5.conf
+sudo ntpdate timex.cs.columbia.edu
+sudo ssh -tt root@${SERVER} ntpdate timex.cs.columbia.edu
+sudo ssh -tt root@kdc.sonasdomain.com ntpdate timex.cs.columbia.edu
+
 # get rid of the test files
 rm -f $WORKSPACE/*.xml
 sudo rm -rf /tmp/root /tmp/jenkins
