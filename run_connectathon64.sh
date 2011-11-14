@@ -13,6 +13,8 @@
 rm -f $WORKSPACE/*.xml
 sudo rm -rf /tmp/root /tmp/jenkins
 
+HOST=sonas13_gpfs35
+
 echo "Building connectathon"
 if [[ ! -d /home/hudson/cthon04 ]]; then
     git clone git://morbo.linux.ibm.com/~sdague/cthon04 /home/hudson/cthon04
@@ -28,16 +30,16 @@ echo "Unmounting everything"
 sudo killall runcthon
 sudo killall tlocklfs
 sudo ./runcthon --unmountall
-ssh -tt root@sonas13 service nfs-ganesha-gpfs restart || exit 1
-sudo ./runcthon --server sonas13 --serverdir /ibm/fs0/hudson64/root/$NODE_NAME --onlyv3
+ssh -tt root@$HOST service nfs-ganesha-gpfs restart || exit 1
+sudo ./runcthon --server $HOST --serverdir /ibm/fs0/hudson64/root/$NODE_NAME --onlyv3
 sudo ./runcthon --unmountall
 
 echo "Unmounting everything"
 sudo killall runcthon
 sudo killall tlocklfs
 sudo ./runcthon --unmountall
-ssh -tt root@sonas13 service nfs-ganesha-gpfs restart || exit 1
-./runcthon --server sonas13 --serverdir /ibm/fs0/hudson64/jenkins/$NODE_NAME --onlyv3
+ssh -tt root@$HOST service nfs-ganesha-gpfs restart || exit 1
+./runcthon --server $HOST --serverdir /ibm/fs0/hudson64/jenkins/$NODE_NAME --onlyv3
 sudo ./runcthon --unmountall
 
 

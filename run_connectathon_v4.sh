@@ -11,13 +11,6 @@
 
 SERVER=$1
 HOSTFS=$2
-HOSTNAME=`hostname`
-
-# an up to date time is essential for kerberos
-# KDC is already configured in /etc/krb5.conf
-sudo ntpdate timex.cs.columbia.edu
-sudo ssh -tt root@${SERVER} ntpdate timex.cs.columbia.edu
-sudo ssh -tt root@kdc.sonasdomain.com ntpdate timex.cs.columbia.edu
 
 # get rid of the test files
 rm -f $WORKSPACE/*.xml
@@ -56,7 +49,7 @@ done
 sudo umount -l /mnt
 sleep 1
 
-sudo ./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/root/$NODE_NAME --onlyv3 --onlykrb5 --noudp
+sudo ./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/root/$NODE_NAME --onlyv4 --noudp
 
 echo "Unmounting everything"
 sudo killall runcthon
@@ -80,8 +73,7 @@ done
 sudo umount -l /mnt
 sleep 1
 
-kinit -k jenkins/$HOSTNAME@SONASDOMAIN.COM 
-./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/jenkins/$NODE_NAME --onlyv3 --onlykrb5 --noudp
+./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/jenkins/$NODE_NAME --onlyv4 --noudp
 sudo ./runcthon --unmountall
 
 
@@ -93,5 +85,5 @@ fi
 
 cd /home/hudson/cthon2junit
 git pull
-sudo ./cthon2junit.rb $WORKSPACE /tmp/root "root-" noudp krb
-sudo ./cthon2junit.rb $WORKSPACE /tmp/jenkins "jenkins-" noudp krb
+./cthon2junit.rb $WORKSPACE /tmp/root "root-"
+./cthon2junit.rb $WORKSPACE /tmp/jenkins "jenkins-"
