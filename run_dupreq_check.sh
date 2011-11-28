@@ -11,7 +11,7 @@ echo "Building duplicate request check"
 if [[ -d /home/hudson/dupreq_check ]]; then
     rm -rf /home/hudson/dupreq_check
 fi
-git clone git://morbo.linux.ibm.com/~jbongio0/dupreq_check /home/hudson/dupreq_check
+git clone git://morbo.stglabs.ibm.com/~jbongio0/dupreq_check /home/hudson/dupreq_check
 cd /home/hudson/dupreq_check
 make
 

@@ -25,7 +25,7 @@ sudo rm -rf /tmp/root /tmp/jenkins
 
 echo "Building connectathon"
 if [[ ! -d /home/hudson/cthon04 ]]; then
-    git clone git://morbo.linux.ibm.com/~sdague/cthon04 /home/hudson/cthon04
+    git clone git://morbo.stglabs.ibm.com/~sdague/cthon04 /home/hudson/cthon04
 fi
 cd /home/hudson/cthon04
 git pull
@@ -88,7 +88,7 @@ sudo ./runcthon --unmountall
 echo "Running the parser"
 # get the parse
 if [[ ! -d /home/hudson/cthon2junit ]]; then
-    git clone git://morbo.linux.ibm.com/~sdague/cthon2junit /home/hudson/cthon2junit
+    git clone git://morbo.stglabs.ibm.com/~sdague/cthon2junit /home/hudson/cthon2junit
 fi
 
 cd /home/hudson/cthon2junit
