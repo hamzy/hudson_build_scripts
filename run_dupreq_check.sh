@@ -20,8 +20,8 @@ sudo killall dupreq_check
 ssh -tt root@sonas12 service nfs-ganesha-gpfs restart
 
 echo "Running tests"
-sudo ./dupreq_check -h sonas12 -d /ibm/fs0/hudson/$NODE_NAME -C > /tmp/dupreq_check-C
-sudo ./dupreq_check -h sonas12 -d /ibm/fs0/hudson/$NODE_NAME -D > /tmp/dupreq_check-D
+sudo ./dupreq_check -h sonas12 -d /ibm/gpfs0/hudson/$NODE_NAME -C > /tmp/dupreq_check-C
+sudo ./dupreq_check -h sonas12 -d /ibm/gpfs0/hudson/$NODE_NAME -D > /tmp/dupreq_check-D
 
 echo "Running the parser"
 cd /home/hudson/dupreq_check

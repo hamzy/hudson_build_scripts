@@ -31,7 +31,7 @@ sudo killall runcthon
 sudo killall tlocklfs
 sudo ./runcthon --unmountall
 ssh -tt root@$HOST service nfs-ganesha-gpfs restart || exit 1
-sudo ./runcthon --server $HOST --serverdir /ibm/fs0/hudson64/root/$NODE_NAME --onlyv3
+sudo ./runcthon --server $HOST --serverdir /ibm/gpfs0/hudson64/root/$NODE_NAME --onlyv3
 sudo ./runcthon --unmountall
 
 echo "Unmounting everything"
@@ -39,7 +39,7 @@ sudo killall runcthon
 sudo killall tlocklfs
 sudo ./runcthon --unmountall
 ssh -tt root@$HOST service nfs-ganesha-gpfs restart || exit 1
-./runcthon --server $HOST --serverdir /ibm/fs0/hudson64/jenkins/$NODE_NAME --onlyv3
+./runcthon --server $HOST --serverdir /ibm/gpfs0/hudson64/jenkins/$NODE_NAME --onlyv3
 sudo ./runcthon --unmountall
 
 
