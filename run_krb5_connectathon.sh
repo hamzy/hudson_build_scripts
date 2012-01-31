@@ -88,10 +88,10 @@ sudo ./runcthon --unmountall
 echo "Running the parser"
 # get the parse
 if [[ ! -d /home/hudson/cthon2junit ]]; then
-    git clone git://morbo.stglabs.ibm.com/~sdague/cthon2junit /home/hudson/cthon2junit
+    git clone git://morbo.stglabs.ibm.com/~jbongio0/cthon2junit /home/hudson/cthon2junit
 fi
 
 cd /home/hudson/cthon2junit
 git pull
-sudo ./cthon2junit.rb $WORKSPACE /tmp/root "root-" noudp krb
-sudo ./cthon2junit.rb $WORKSPACE /tmp/jenkins "jenkins-" noudp krb
+sudo ./cthon2junit.rb $WORKSPACE /tmp/root "root-" noudp v3 krb
+sudo ./cthon2junit.rb $WORKSPACE /tmp/jenkins "jenkins-" noudp v3 krb

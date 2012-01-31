@@ -49,7 +49,8 @@ done
 sudo umount -l /mnt
 sleep 1
 
-sudo ./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/root/$NODE_NAME --onlyv3 --noudp
+#sudo ./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/root/$NODE_NAME --onlyv3 --noudp
+sudo ./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/root/$NODE_NAME --onlyv3
 
 echo "Unmounting everything"
 sudo killall runcthon
@@ -73,17 +74,18 @@ done
 sudo umount -l /mnt
 sleep 1
 
-./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/jenkins/$NODE_NAME --onlyv3 --noudp
+#./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/jenkins/$NODE_NAME --onlyv3 --noudp
+./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/jenkins/$NODE_NAME --onlyv3
 sudo ./runcthon --unmountall
 
 
 echo "Running the parser"
 # get the parse
 if [[ ! -d /home/hudson/cthon2junit ]]; then
-    git clone git://morbo.stglabs.ibm.com/~sdague/cthon2junit /home/hudson/cthon2junit
+    git clone git://morbo.stglabs.ibm.com/~jbongio0/cthon2junit /home/hudson/cthon2junit
 fi
 
 cd /home/hudson/cthon2junit
 git pull
-./cthon2junit.rb $WORKSPACE /tmp/root "root-"
-./cthon2junit.rb $WORKSPACE /tmp/jenkins "jenkins-"
+./cthon2junit.rb $WORKSPACE /tmp/root "root-" udp nokrb v3
+./cthon2junit.rb $WORKSPACE /tmp/jenkins "jenkins-" udp nokrb v3

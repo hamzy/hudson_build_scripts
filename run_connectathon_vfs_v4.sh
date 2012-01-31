@@ -35,7 +35,7 @@ sudo ./runcthon --unmountall
 sleep 1
 sudo umount -l /mnt
 
-ssh -tt root@${SERVER} service nfs-ganesha-gpfs restart || exit 1
+ssh -tt root@${SERVER} service nfs-ganesha-vfs restart || exit 1
 sleep 5
 
 NFSNOTREADY=1
@@ -59,7 +59,7 @@ sudo ./runcthon --unmountall
 sleep 1
 sudo umount -l /mnt
 
-ssh -tt root@${SERVER} service nfs-ganesha-gpfs restart || exit 1
+ssh -tt root@${SERVER} service nfs-ganesha-vfs restart || exit 1
 sleep 5
 
 NFSNOTREADY=1
@@ -85,5 +85,5 @@ fi
 
 cd /home/hudson/cthon2junit
 git pull
-./cthon2junit.rb $WORKSPACE /tmp/root "root-" noudp nokrb v4
-./cthon2junit.rb $WORKSPACE /tmp/jenkins "jenkins-" noudp nokrb v4
+./cthon2junit.rb $WORKSPACE /tmp/root "root-" noudp nokrb v3
+./cthon2junit.rb $WORKSPACE /tmp/jenkins "jenkins-" noudp nokrb v3
