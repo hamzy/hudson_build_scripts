@@ -15,7 +15,8 @@ DATE=`date +%Y%m%d%H%M`
 rm -f /tmp/*.rpm
 cd src
 #export CONFIG_FLAGS="--enable-strict-compile --with-fsal=GPFS --enable-snmp-adm --enable-nlm --enable-stat-exporter --enable-nfs4-locks --with-rpcal=TIRPC"
-export CONFIG_FLAGS=" --with-fsal=GPFS --enable-snmp-adm --enable-nlm --enable-stat-exporter --enable-nfs4-locks --with-rpcal=TIRPC"
+#export CONFIG_FLAGS=" --with-fsal=GPFS --enable-snmp-adm --enable-nlm --enable-stat-exporter --enable-nfs4-locks  --with-rpcal=TIRPC"
+export CONFIG_FLAGS="--enable-strict-compile --enable-debug-symbols --with-fsal=GPFS --with-rpcal=TIRPC --enable-nlm --enable-nfs4-locks --enable-stat-exporter --enable-snmp-adm --enable-fsal-up"
 autoreconf -i
 ./configure $CONFIG_FLAGS
 perl -pi -e "s/Release: .*/Release: $DATE.$GITVER/" nfs-ganesha.spec
