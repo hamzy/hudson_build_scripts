@@ -11,12 +11,18 @@
 
 GITVER=`git log -1 | head -1 | cut -b 8-15`
 DATE=`date +%Y%m%d%H%M`
+STRICT=$1
 
 rm -f /tmp/*.rpm
 cd src
 #export CONFIG_FLAGS="--enable-strict-compile --with-fsal=VFS --enable-snmp-adm --enable-nlm --enable-stat-exporter --with-rpcal=TIRPC"
 #export CONFIG_FLAGS="--with-fsal=VFS --enable-snmp-adm --enable-nlm --enable-stat-exporter --with-rpcal=TIRPC"
-export CONFIG_FLAGS="--enable-strict-compile --enable-debug-symbols --with-fsal=GPFS --with-rpcal=TIRPC --enable-nlm --enable-nfs4-locks --enable-stat-exporter --enable-snmp-adm --enable-fsal-up"
+if [[ $STRICT  ]]; then
+    export CONFIG_FLAGS="--enable-strict-compile --enable-debug-symbols --with-fsal=GPFS --with-rpcal=TIRPC --enable-nlm --enable-nfs4-locks --enable-stat-exporter --enable-snmp-adm --enable-fsal-up"
+else
+    export CONFIG_FLAGS="--enable-debug-symbols --with-fsal=GPFS --with-rpcal=TIRPC --enable-nlm --enable-nfs4-locks --enable-stat-exporter --enable-snmp-adm --enable-fsal-up"
+fi
+
 autoreconf -i
 ./configure $CONFIG_FLAGS
 perl -pi -e "s/Release: .*/Release: $DATE.$GITVER/" nfs-ganesha.spec
