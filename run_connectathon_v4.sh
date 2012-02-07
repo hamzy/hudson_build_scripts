@@ -81,6 +81,10 @@ echo "Running the parser"
 # get the parse
 if [[ ! -d /home/hudson/cthon2junit ]]; then
     git clone git://morbo.stglabs.ibm.com/~jbongio0/cthon2junit /home/hudson/cthon2junit
+else
+    cd /home/hudson/cthon2junit
+    git fetch git://morbo.stglabs.ibm.com/~jbongio0/cthon2junit master
+    git reset --hard FETCH_HEAD
 fi
 
 cd /home/hudson/cthon2junit
