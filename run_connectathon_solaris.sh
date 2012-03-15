@@ -6,7 +6,6 @@
 ## Login   <sdague@orac>
 ## 
 ## Started on  Fri Nov 19 11:12:16 2010 Sean Dague
-## Last update Fri Nov 19 11:12:16 2010 Sean Dague
 ##
 
 # get rid of the test files
