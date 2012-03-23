@@ -49,7 +49,7 @@ sudo umount -l /mnt
 sleep 1
 
 #sudo ./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/root/$NODE_NAME --onlyv3 --noudp
-sudo ./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/root/$NODE_NAME --onlyv3
+sudo ./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/root/$NODE_NAME --onlyv3 --noudp
 
 echo "Unmounting everything"
 sudo killall runcthon
@@ -74,7 +74,7 @@ sudo umount -l /mnt
 sleep 1
 
 #./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/jenkins/$NODE_NAME --onlyv3 --noudp
-./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/jenkins/$NODE_NAME --onlyv3
+./runcthon --server ${SERVER} --serverdir $HOSTFS/hudson/jenkins/$NODE_NAME --onlyv3 --noudp
 sudo ./runcthon --unmountall
 
 

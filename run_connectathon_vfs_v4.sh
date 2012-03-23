@@ -18,7 +18,7 @@ sudo rm -rf /tmp/root /tmp/jenkins
 
 echo "Building connectathon"
 if [[ ! -d /home/hudson/cthon04 ]]; then
-    git clone git://morbo.stglabs.ibm.com/~sdague/cthon04 /home/hudson/cthon04
+    git clone git://morbo.stglabs.ibm.com/~jbongio0/cthon04 /home/hudson/cthon04
 fi
 cd /home/hudson/cthon04
 git pull
