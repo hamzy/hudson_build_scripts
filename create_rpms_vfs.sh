@@ -18,9 +18,9 @@ cd src
 #export CONFIG_FLAGS="--enable-strict-compile --with-fsal=VFS --enable-snmp-adm --enable-nlm --enable-stat-exporter --with-rpcal=TIRPC"
 #export CONFIG_FLAGS="--with-fsal=VFS --enable-snmp-adm --enable-nlm --enable-stat-exporter --with-rpcal=TIRPC"
 if [[ $STRICT  ]]; then
-    export CONFIG_FLAGS="--enable-strict-compile --enable-debug-symbols --with-fsal=VFS --with-rpcal=TIRPC --enable-nlm --enable-nfs4-locks --enable-stat-exporter --enable-snmp-adm --enable-fsal-up --enable-nfs4-acl"
+    export CONFIG_FLAGS="--enable-strict-compile --enable-debug-symbols --with-fsal=VFS --with-rpcal=TIRPC --enable-nlm --enable-nfs4-locks --enable-stat-exporter --enable-snmp-adm"
 else
-    export CONFIG_FLAGS="--enable-debug-symbols --with-fsal=VFS --with-rpcal=TIRPC --enable-nlm --enable-nfs4-locks --enable-stat-exporter --enable-snmp-adm --enable-fsal-up --enable-nfs4-acl"
+    export CONFIG_FLAGS="--enable-debug-symbols --with-fsal=VFS --with-rpcal=TIRPC --enable-nlm --enable-nfs4-locks --enable-stat-exporter --enable-snmp-adm"
 fi
 
 autoreconf -i
