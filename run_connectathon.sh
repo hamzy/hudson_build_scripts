@@ -90,5 +90,5 @@ fi
 
 cd /home/hudson/cthon2junit
 git pull
-./cthon2junit.rb $WORKSPACE /tmp/root "root-" udp nokrb v3
-./cthon2junit.rb $WORKSPACE /tmp/jenkins "jenkins-" udp nokrb v3
+./cthon2junit.rb $WORKSPACE /tmp/root "root-" noudp nokrb v3
+./cthon2junit.rb $WORKSPACE /tmp/jenkins "jenkins-" noudp nokrb v3
