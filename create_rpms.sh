@@ -23,6 +23,8 @@ else
     export CONFIG_FLAGS="--enable-debug-symbols --with-fsal=GPFS --with-rpcal=TIRPC --enable-nlm --enable-nfs4-locks --enable-stat-exporter --enable-snmp-adm --enable-fsal-up --enable-nfs4-acl"
 fi
 
+sh ./tirpc.sh
+aclocal
 autoreconf -i
 ./configure $CONFIG_FLAGS
 perl -pi -e "s/Release: .*/Release: $DATE.$GITVER/" nfs-ganesha.spec
