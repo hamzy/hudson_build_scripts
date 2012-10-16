@@ -19,6 +19,7 @@ if [[ ! -d /home/hudson/cthon04 ]]; then
     git clone git://morbo.stglabs.ibm.com/~jbongio0/cthon04 /home/hudson/cthon04
 fi
 
+sh ./build_dirs.sh
 cd /home/hudson/cthon04
 git pull
 sudo rm -f domount
