@@ -9,6 +9,8 @@
 ## Last update Fri Nov 19 11:12:16 2010 Sean Dague
 ##
 
+source ./CONFIG
+
 SERVER=$1
 HOSTFS=$2
 
@@ -18,7 +20,7 @@ sudo rm -rf /tmp/root /tmp/jenkins
 
 echo "Building connectathon"
 if [[ ! -d /home/hudson/cthon04 ]]; then
-    git clone git://morbo.stglabs.ibm.com/~jbongio0/cthon04 /home/hudson/cthon04
+    git clone $CTHON04_LOC /home/hudson/cthon04
 fi
 
 sh ./build_dirs.sh
@@ -82,10 +84,10 @@ sudo ./runcthon --unmountall
 echo "Running the parser"
 # get the parse
 if [[ ! -d /home/hudson/cthon2junit ]]; then
-    git clone git://morbo.stglabs.ibm.com/~jbongio0/cthon2junit /home/hudson/cthon2junit
+    git clone $CTHON2JUNIT_LOC /home/hudson/cthon2junit
 else
     cd /home/hudson/cthon2junit
-    git fetch git://morbo.stglabs.ibm.com/~jbongio0/cthon2junit master
+    git fetch $CTHON2JUNIT_LOC master
     git reset --hard FETCH_HEAD
 fi
 

@@ -9,6 +9,8 @@
 ## Last update Fri Nov 19 11:12:16 2010 Sean Dague
 ##
 
+source ./CONFIG
+
 SERVER=$1
 HOSTFS=$2
 HOSTNAME=`hostname`
@@ -21,7 +23,7 @@ sudo rm -rf /tmp/root /tmp/jenkins
 
 echo "Building connectathon"
 if [[ ! -d /home/jenkins/cthon04_solaris ]]; then
-    git clone git://morbo.stglabs.ibm.com/~jbongio0/cthon04_solaris /home/jenkins/cthon04_solaris
+    git clone $CTHON04_SOLARIS_LOC /home/jenkins/cthon04_solaris
 fi
 cd /home/jenkins/cthon04_solaris
 git pull
@@ -51,7 +53,7 @@ sudo ./runcthon --unmountall
 echo "Running the parser"
 # get the parse
 if [[ ! -d /home/jenkins/cthon2junit ]]; then
-    git clone git://morbo.stglabs.ibm.com/~jbongio0/cthon2junit /home/jenkins/cthon2junit
+    git clone $CTHON2JUNIT_LOC /home/jenkins/cthon2junit
 fi
 
 cd /home/jenkins/cthon2junit
