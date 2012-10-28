@@ -29,7 +29,7 @@
 ## Last update Fri Nov 19 11:12:16 2010 Sean Dague
 ##
 
-source ./CONFIG
+source $HOME/scripts/CONFIG
 
 SERVER=$1
 HOSTFS=$2

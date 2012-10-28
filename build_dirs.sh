@@ -19,7 +19,7 @@
 #
 # ---------------------------------------
 
-source ./CONFIG
+source $HOME/scripts/CONFIG
 
 SERVER=$1
 HOSTFS=$2

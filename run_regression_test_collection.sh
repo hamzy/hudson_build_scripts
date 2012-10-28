@@ -27,7 +27,7 @@
 ## Creation: Nov 22 2010
 ##
 
-source ./CONFIG
+source $HOME/scripts/CONFIG
 
 SERVER=$1
 HOSTFS=$2

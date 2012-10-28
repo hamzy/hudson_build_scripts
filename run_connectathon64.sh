@@ -28,7 +28,7 @@
 ## Started on  Fri Nov 19 11:12:16 2010 Sean Dague
 ##
 
-source ./CONFIG
+source $HOME/scripts/CONFIG
 
 # get rid of the test files
 rm -f $WORKSPACE/*.xml
