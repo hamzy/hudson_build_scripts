@@ -19,7 +19,7 @@ rm -f $WORKSPACE/*.xml
 sudo rm -rf /tmp/pynfs4.0 /tmp/pynfs4.1
 
 echo "Building pynfs"
-if [[! -d /home/hudson/pynfs ]]; then
+if [[ ! -d /home/hudson/pynfs ]]; then
     git clone $PYNFS_LOC /home/hudson/pynfs
 fi
 
