@@ -1,0 +1,40 @@
+#!/bin/bash -x
+##
+## run_connectathon.sh
+##
+## Made by Sean Dague
+## Login   <sdague@orac>
+##
+## Started on  Fri Nov 19 11:12:16 2010 Sean Dague
+##
+
+source ./CONFIG
+
+SERVER=$1
+HOSTFS=$2
+
+$PWD = `pwd`
+# get rid of the test files
+rm -f $WORKSPACE/*.xml
+sudo rm -rf /tmp/pynfs4.0 /tmp/pynfs4.1
+
+echo "Building pynfs"
+if [[! -d /home/hudson/pynfs ]]; then
+    git clone $PYNFS_LOC /home/hudson/pynfs
+fi
+
+cd /home/hudson/pynfs/nfs4.0
+git pull
+python setup.py build
+mkdir -p /tmp/pynfs4.0
+sudo python testserver.py $SERVER:$HOSTFS --maketree all &> /tmp/pynfs4.0/root-results
+perl parse_pynfs.pl /tmp/pynfs4.0/root-results &> $WORKSPACE/pynfs4.0_results.xml
+
+cd /home/hudson/pynfs/nfs4.1
+git pull
+python setup.py build
+mkdir -p /tmp/pynfs4.1
+sudo python testserver.py $SERVER:$HOSTFS --maketree all &> /tmp/pynfs4.1/root-results
+perl parse_pynfs.pl /tmp/pynfs4.1/root-results &> $WORKSPACE/pynfs4.1_results.xml
+
+
