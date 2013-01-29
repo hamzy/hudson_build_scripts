@@ -40,5 +40,5 @@ git fetch jer-github
 git cherry-pick 1cf58ba157a3e4392d2a7e06ad45d9db62e838ff
 cmake ./ -DDEBUG_SYMS=ON -DCMAKE_PREFIX_PATH=/usr/ -DCMAKE_INSTALL_PREFIX=/usr/ -DCMAKE_BUILD_TYPE=Maintainer && gmake
 sudo gmake install
-ldconfig
+sudo ldconfig
 
