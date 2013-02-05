@@ -30,11 +30,11 @@ mkdir -p /tmp/pynfs4.0
 sudo python testserver.py $SERVER:$HOSTFS --maketree all &> /tmp/pynfs4.0/root-results
 perl parse_pynfs.pl /tmp/pynfs4.0/root-results &> $WORKSPACE/pynfs4.0_results.xml
 
-cd /home/hudson/pynfs/nfs4.1
-git pull
-yes | python setup.py build
-mkdir -p /tmp/pynfs4.1
-sudo python testserver.py $SERVER:$HOSTFS --maketree all &> /tmp/pynfs4.1/root-results
-perl parse_pynfs.pl /tmp/pynfs4.1/root-results &> $WORKSPACE/pynfs4.1_results.xml
+#cd /home/hudson/pynfs/nfs4.1
+#git pull
+#yes | python setup.py build
+#mkdir -p /tmp/pynfs4.1
+#sudo python testserver.py $SERVER:$HOSTFS --maketree all &> /tmp/pynfs4.1/root-results
+#perl parse_pynfs.pl /tmp/pynfs4.1/root-results &> $WORKSPACE/pynfs4.1_results.xml
 
 
