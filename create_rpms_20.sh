@@ -32,13 +32,19 @@
 GITVER=`git log -1 | head -1 | cut -b 8-15`
 DATE=`date +%Y%m%d%H%M`
 STRICT=$1
+CODE_DIR=`PWD`
+BUILDDIR=/home/jenkins/nfsbuild
 
 rm -f /tmp/*.rpm
-cd src
-git remote add jer-github https://github.com/bongiojp/nfs-ganesha.git
-git fetch jer-github
-git cherry-pick 1cf58ba157a3e4392d2a7e06ad45d9db62e838ff
-cmake ./ -DDEBUG_SYMS=ON -DCMAKE_PREFIX_PATH=/usr/ -DCMAKE_INSTALL_PREFIX=/usr/ -DCMAKE_BUILD_TYPE=Maintainer && gmake
-sudo gmake install
+git submodule update --init
+#cd src
+#git remote add jer-github https://github.com/bongiojp/nfs-ganesha.git
+#git fetch jer-github
+#git cherry-pick 1cf58ba157a3e4392d2a7e06ad45d9db62e838ff
+mkdir -p $BUILDDIR
+cd $BUILDDIR
+cmake $CODE_DIR/src/ -DUSE_DBUS=OFF -DDEBUG_SYMS=ON -DCMAKE_PREFIX_PATH=/usr/ -DCMAKE_INSTALL_PREFIX=/usr/ -DUSE_FSAL_POSIX=OFF
+make rpm
+sudo rpm -Uvh --force RPM/RPMS/x86_64/*.rpm
 sudo ldconfig
 
