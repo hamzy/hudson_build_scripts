@@ -42,7 +42,8 @@ if [[ ! -d /home/hudson/cthon04 ]]; then
     git clone $CTHON04_LOC /home/hudson/cthon04
 fi
 
-sh ./build_dirs.sh
+echo `pwd`
+#sh /hudson_build_scripts/build_dirs.sh $SERVER $HOSTFS
 cd /home/hudson/cthon04
 git pull
 sudo rm -f domount
