@@ -18,8 +18,8 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 #
 # ---------------------------------------
-
-source CONFIG
+CONFDIR=`dirname ${0}`
+source $CONFDIR/CONFIG
 
 SERVER=$1
 HOSTFS=$2
