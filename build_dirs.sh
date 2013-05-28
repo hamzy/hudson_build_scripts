@@ -28,9 +28,9 @@ ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/root/rhel60/nfsv3tcp
 ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/root/rhel60/nfsv3udp
 ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/root/rhel60/nfsv4tcp
 
-ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/root/rhel55/nfsv3tcp
-ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/root/rhel55/nfsv3udp
-ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/root/rhel55/nfsv4tcp
+ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/root/rhel55_64/nfsv3tcp
+ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/root/rhel55_64/nfsv3udp
+ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/root/rhel55_64/nfsv4tcp
 
 ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/root/rhel55_32/nfsv3tcp
 ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/root/rhel55_32/nfsv3udp
@@ -47,9 +47,9 @@ ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/jenkins/rhel60/nfsv3tcp
 ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/jenkins/rhel60/nfsv3udp
 ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/jenkins/rhel60/nfsv4tcp
 
-ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/jenkins/rhel55/nfsv3tcp
-ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/jenkins/rhel55/nfsv3udp
-ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/jenkins/rhel55/nfsv4tcp
+ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/jenkins/rhel55_64/nfsv3tcp
+ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/jenkins/rhel55_64/nfsv3udp
+ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/jenkins/rhel55_64/nfsv4tcp
 
 ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/jenkins/rhel55_32/nfsv3tcp
 ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson64/jenkins/rhel55_32/nfsv3udp
@@ -69,9 +69,9 @@ ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/root/rhel60/nfsv3tcp
 ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/root/rhel60/nfsv3udp
 ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/root/rhel60/nfsv4tcp
 
-ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/root/rhel55/nfsv3tcp
-ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/root/rhel55/nfsv3udp
-ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/root/rhel55/nfsv4tcp
+ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/root/rhel55_64/nfsv3tcp
+ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/root/rhel55_64/nfsv3udp
+ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/root/rhel55_64/nfsv4tcp
 
 ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/root/rhel55_32/nfsv3tcp
 ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/root/rhel55_32/nfsv3udp
@@ -88,9 +88,9 @@ ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/jenkins/rhel60/nfsv3tcp
 ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/jenkins/rhel60/nfsv3udp
 ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/jenkins/rhel60/nfsv4tcp
 
-ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/jenkins/rhel55/nfsv3tcp
-ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/jenkins/rhel55/nfsv3udp
-ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/jenkins/rhel55/nfsv4tcp
+ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/jenkins/rhel55_64/nfsv3tcp
+ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/jenkins/rhel55_64/nfsv3udp
+ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/jenkins/rhel55_64/nfsv4tcp
 
 ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/jenkins/rhel55_32/nfsv3tcp
 ssh -tt root@$SERVER mkdir -p $HOSTFS/hudson/jenkins/rhel55_32/nfsv3udp
