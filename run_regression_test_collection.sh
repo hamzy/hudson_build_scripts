@@ -27,7 +27,8 @@
 ## Creation: Nov 22 2010
 ##
 
-source $HOME/scripts/CONFIG
+CONFDIR=`dirname ${0}`
+source $CONFDIR/CONFIG
 
 SERVER=$1
 HOSTFS=$2

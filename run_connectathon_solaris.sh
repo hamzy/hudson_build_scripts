@@ -28,7 +28,8 @@
 ## Started on  Fri Nov 19 11:12:16 2010 Sean Dague
 ##
 
-source $HOME/scripts/CONFIG
+CONFDIR=`dirname ${0}`
+source $CONFDIR/CONFIG
 
 SERVER=$1
 HOSTFS=$2
