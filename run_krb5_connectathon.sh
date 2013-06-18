@@ -73,7 +73,7 @@ sleep 5
 NFSNOTREADY=1
 while [ $NFSNOTREADY -ne 0 ]
 do
-    sudo mount ${SERVER}:$HOSTFS /mnt
+    sudo mount -t nfs -o vers=3 ${SERVER}:$HOSTFS /mnt
     NFSNOTREADY=$?
     sleep 5
     echo "sleeping 5 seconds to ensure NFS is ready"
@@ -97,7 +97,7 @@ sleep 5
 NFSNOTREADY=1
 while [ $NFSNOTREADY -ne 0 ]
 do
-    sudo mount ${SERVER}:$HOSTFS /mnt
+    sudo mount -t nfs -o vers=3 ${SERVER}:$HOSTFS /mnt
     NFSNOTREADY=$?
     sleep 5
     echo "sleeping 5 seconds to ensure NFS is ready"
