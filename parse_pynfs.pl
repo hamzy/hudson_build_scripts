@@ -8,8 +8,10 @@ my $failure = 0;
 my $totfail = 1;
 my $tottest = 1;
 my $allfailmessages = "";
+my $ENTIREFILE;
 foreach(<IN>) {
     my $line = $_;
+    $ENTIREFILE .= $line;
     if ($line =~ /.*FAILURE.*/) {
         $allfailmessages .= "$line";
         $failure = 1;
@@ -35,7 +37,11 @@ close(IN);
 
 
 if ($totfail > 0) {
-    print "<testsuite failures='1' name ='PYNFS' tests='1' time='0'><failure message='\n${allfailmessages}'/></testcase><system-out>${allfailmessages}</system-out></testsuite>";
+    print "<testsuite name ='PYNFS' tests='1'  failures='1' time='0'>
+                <failure message='\n${ENTIREFILE}'> </failure>
+          </testsuite>";
 } else {
     print "<testsuite failures='0' name ='PYNFS' tests='1' time='0'></testsuite>";
 }
+
+#                <success message=''/>
