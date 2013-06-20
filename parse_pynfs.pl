@@ -35,6 +35,9 @@ foreach(<IN>) {
 }
 close(IN);
 
+#replace "<" or ">" so junit xml doesn't freak out
+$ENTIREFILE =~ s/\</\\\</g;
+$ENTIREFILE =~ s/\>/\\\>/g;
 
 if ($totfail > 0) {
     print "<testsuite name ='PYNFS' tests='1'  failures='1' time='0'>
