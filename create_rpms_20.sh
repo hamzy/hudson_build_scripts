@@ -29,11 +29,14 @@
 ## Last update Fri Nov 19 09:37:38 2010 Sean Dague
 ##
 
+CONFDIR=`dirname ${0}`
+source $CONFDIR/CONFIG
+
 GITVER=`git log -1 | head -1 | cut -b 8-15`
 DATE=`date +%Y%m%d%H%M`
 STRICT=$1
 CODE_DIR=`pwd`
-BUILDDIR=/home/jenkins/nfsbuild
+
 
 rm -f /tmp/*.rpm
 git submodule update --init
