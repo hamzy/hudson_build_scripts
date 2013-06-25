@@ -38,9 +38,9 @@ cd src
 #export CONFIG_FLAGS="--enable-strict-compile --with-fsal=GPFS --enable-snmp-adm --enable-nlm --enable-stat-exporter --enable-nfs4-locks --with-rpcal=TIRPC"
 #export CONFIG_FLAGS=" --with-fsal=GPFS --enable-snmp-adm --enable-nlm --enable-stat-exporter --enable-nfs4-locks  --with-rpcal=TIRPC"
 if [[ $STRICT  ]]; then
-    export CONFIG_FLAGS="--enable-strict-compile --enable-debug-symbols --with-fsal=GPFS --with-rpcal=TIRPC --enable-nlm --enable-nfs4-locks --enable-stat-exporter --enable-snmp-adm --enable-fsal-up --enable-nfs4-acl"
+    export CONFIG_FLAGS="--enable-strict-compile --enable-debug-symbols --with-fsal=GPFS --with-rpcal=TIRPC --enable-nlm --enable-nfs4-locks --enable-stat-exporter --enable-fsal-up --enable-nfs4-acl"
 else
-    export CONFIG_FLAGS="--enable-debug-symbols --with-fsal=GPFS --with-rpcal=TIRPC --enable-nlm --enable-nfs4-locks --enable-stat-exporter --enable-snmp-adm --enable-fsal-up --enable-nfs4-acl"
+    export CONFIG_FLAGS="--enable-debug-symbols --with-fsal=GPFS --with-rpcal=TIRPC --enable-nlm --enable-nfs4-locks --enable-stat-exporter --enable-fsal-up --enable-nfs4-acl"
 fi
 
 sh ./tirpc.sh
