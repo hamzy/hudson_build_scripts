@@ -5,3 +5,5 @@ REGRESSIONTEST_LOC=http://github.com/bongiojp/nfstests.git
 PYNFS_LOC=git://git.linux-nfs.org/projects/bfields/pynfs.git
 SIGMUND_LOC=https://github.com/phdeniel/sigmund.git
 BUILDDIR=/home/jenkins/nfsbuild
+TUXERA_LOC=http://tuxera.com/sw/qa/pjd-fstest-20090130-RC.tgz
+NFSTEST_LOC=git://git.linux-nfs.org/projects/mora/nfstest.git 
