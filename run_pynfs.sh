@@ -14,7 +14,7 @@ source $CONFDIR/CONFIG
 SERVER=$1
 HOSTFS=$2
 
-$PWD = `pwd`
+PWD=`pwd`
 # get rid of the test files
 rm -f $WORKSPACE/*.xml
 sudo rm -rf /tmp/pynfs4.0 /tmp/pynfs4.1
